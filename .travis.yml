@@ -28,7 +28,7 @@ addons:
       - libxss1
       - libasound2
       - python3.7-venv
-      - python3.7-pip
+      - python3-pip
 before_install:
   - nvm install 12;
   - if [ "$TEST_SUITE" == "plone" ]; then
