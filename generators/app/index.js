@@ -148,9 +148,14 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath(), this.destinationPath(base), {
       globOptions: {
-        ignore: ['**/*.tpl', '**/*~'],
+        ignore: ['**/package.json.tpl', '**/*.tpl', '**/*~'],
+        dot: true,
       },
     });
+    // this.fs.move(
+    //   this.templatePath('gitignore'),
+    //   this.destinationPath(base, '.gitignore'),
+    // );
   }
 
   install() {
