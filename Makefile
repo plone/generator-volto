@@ -8,7 +8,7 @@ build-backend:  ## Build Plone 5.2
 	(cd api && bin/buildout)
 
 test-acceptance-server:
-	ZSERVER_PORT=55001 CONFIGURE_PACKAGES=plone.app.contenttypes,plone.restapi,kitconcept.voltodemo,kitconcept.voltodemo.cors APPLY_PROFILES=plone.app.contenttypes:plone-content,plone.restapi:default,kitconcept.voltodemo:default ./api/bin/robot-server plone.app.robotframework.testing.PLONE_ROBOT_TESTING
+	ZSERVER_PORT=55001 CONFIGURE_PACKAGES=plone.app.contenttypes,plone.restapi,kitconcept.volto,kitconcept.volto.cors APPLY_PROFILES=plone.app.contenttypes:plone-content,plone.restapi:default,kitconcept.volto:default ./api/bin/robot-server plone.app.robotframework.testing.PLONE_ROBOT_TESTING
 
 test-acceptance-guillotina:
 	docker-compose -f g-api/docker-compose.yml up > /dev/null
