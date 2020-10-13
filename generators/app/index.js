@@ -144,7 +144,7 @@ module.exports = class extends Generator {
       this.globals,
     );
 
-    this.fs.write(this.destinationPath(base, 'yarn.lock'), this.voltoYarnLock);
+    // this.fs.write(this.destinationPath(base, 'yarn.lock'), this.voltoYarnLock);
 
     this.fs.copy(this.templatePath(), this.destinationPath(base), {
       globOptions: {
