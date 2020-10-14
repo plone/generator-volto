@@ -7,6 +7,7 @@ tests
 .gitmodules
 test-requirements.txt
 ./yarn.lock
+cypress
 
 # Logs
 logs
