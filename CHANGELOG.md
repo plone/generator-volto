@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.0.0 (unreleased)
+## 1.0.0-alpha.0 (2020-10-14)
 
 ### Added
 
