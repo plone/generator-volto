@@ -1,17 +1,16 @@
-[![Build Status](https://travis-ci.org/plone/create-volto-app.svg?branch=master)](https://travis-ci.org/plone/create-volto-app)
+[![Build Status](https://travis-ci.org/plone/generator-volto.svg?branch=master)](https://travis-ci.org/plone/generator-volto)
 
-# create-volto-app
+# Yeoman Volto App Generator
 
-create-volto-app is a Yeoman generator that helps you to set up Volto with a single command.
+@plone/generator-volto is a Yeoman generator that helps you to set up Volto via command line.
 
 ## Installation
 
-Install create-volto-app:
-First, install [Yeoman](http://yeoman.io) and generator-create-volto-app using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and @plone/generator-volto using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```
 $ npm install -g yo
-$ npm install -g generator-create-volto-app
+$ npm install -g @plone/generator-volto
 ```
 
 ## Usage
@@ -19,14 +18,14 @@ $ npm install -g generator-create-volto-app
 Create a new Volto project with:
 
 ```
-$ yo create-volto-app
+$ yo @plone/volto
 ```
 
 This will bootstrap a new Volto project inside the current folder. It will ask
 a few questions: project name, project description and a list of addons. Run:
 
 ```
-$ yo create-volto-app --help
+$ yo @plone/volto --help
 ```
 
 to see a full list of options and arguments.
@@ -34,13 +33,13 @@ to see a full list of options and arguments.
 You can use it in full non-interactive mode by passing something like:
 
 ```
-yo create-volto-app myvoltoproject --description "My Volto project" --skip-addons --skip-install
+yo @plone/volto myvoltoproject --description "My Volto project" --skip-addons --skip-install
 ```
 
 You can also specify addons to load, like:
 
 ```
-yo create-volto-app myvoltoproject --description "My Volto project" --addon "volto-formbuilder:x,y" --addon "volto-slate:z,t"
+yo @plone/volto myvoltoproject --description "My Volto project" --addon "volto-formbuilder:x,y" --addon "volto-slate:z,t"
 ```
 
 Change the directory to your project to get started:
