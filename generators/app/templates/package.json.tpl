@@ -92,6 +92,7 @@
     "@plone/volto": "<%= voltoVersion %>"
   },
   "devDependencies": {
+    "@babel/core": "7.11.1",
     "eslint-plugin-prettier": "3.1.3",
     "prettier": "2.0.5",
     "stylelint": "13.3.3",
