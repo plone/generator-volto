@@ -6,6 +6,9 @@
 
 ### Changes
 
+- Add `--workspace` and `--skip-workspaces` @avoinea
+- Add `--interactive`, `--no-interactive` @avoinea
+
 ## 1.0.0-alpha.1 (2020-10-15)
 
 ### Changes

@@ -42,7 +42,7 @@ install:
     fi
   - npm -g install yo
   - npm -g install ./
-  - yo @plone/volto my-volto-app --description "test volto project" --skip-addons
+  - yo @plone/volto my-volto-app --description "test volto project" --no-interactive
   - yarn install --frozen-lockfile
   - yarn add cypress cypress-file-upload@3.5.3 start-server-and-test xmlrpc
   - yarn cy:install

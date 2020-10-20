@@ -11,8 +11,11 @@
     "build": "razzle build",
     "test": "razzle test --env=jsdom --passWithNoTests",
     "start:prod": "NODE_ENV=production node build/server.js",
-    "i18n": "NODE_ENV=production node node_modules/@plone/volto/src/i18n.js"
+    "i18n": "NODE_ENV=production node node_modules/@plone/volto/src/i18n.js",
+    "develop": "missdev --config=jsconfig.json --output=addons"
   },
+  "private": <%- private %>,
+  "workspaces": <%- workspaces %>,
   "addons": <%- addons %>,
   "jest": {
     "modulePathIgnorePatterns": [

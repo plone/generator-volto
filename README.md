@@ -33,6 +33,12 @@ to see a full list of options and arguments.
 You can use it in full non-interactive mode by passing something like:
 
 ```
+yo @plone/volto myvoltoproject --no-interactive
+```
+
+Or by skipping specific configuration:
+
+```
 yo @plone/volto myvoltoproject --description "My Volto project" --skip-addons --skip-install
 ```
 

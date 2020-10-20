@@ -19,6 +19,18 @@ const validateAddonName = name => {
   return true;
 };
 
+const validateWorkspacePath = path => {
+  if (!path) return false;
+
+  const bits = path.split('/');
+  const pkgName = bits[bits.length - 1];
+
+  // FUTURE: test for some simple sanity, like no space in addon name, etc
+  if (!pkgName) return false;
+
+  return true;
+};
+
 const addonPrompt = [
   {
     type: 'input',
@@ -36,12 +48,33 @@ const addonPrompt = [
   },
 ];
 
+const workspacePrompt = [
+  {
+    type: 'input',
+    name: 'workspacePath',
+    message: 'Workspace path, like: src/addons/volto-addon',
+    default: '',
+    validate: validateWorkspacePath,
+  },
+  {
+    type: 'prompt',
+    name: 'useWorkspaces',
+    message: 'Would you like to add another workspace?',
+    default: true,
+  },
+];
+
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.argument('projectName', {
       type: String,
       default: currentDir,
+    });
+    this.option('interactive', {
+      type: Boolean,
+      desc: 'Enable/disable interactive prompt',
+      default: true,
     });
     this.option('skip-addons', {
       type: Boolean,
@@ -51,6 +84,14 @@ module.exports = class extends Generator {
       type: arr => arr,
       desc:
         'Addon loader string, like: some-volto-addon:loadExtra,loadOtherExtra',
+    });
+    this.option('skip-workspaces', {
+      type: Boolean,
+      desc: "Don't ask for workspaces as part of the scaffolding",
+    });
+    this.option('workspace', {
+      type: arr => arr,
+      desc: 'Yarn workspace, like: src/addons/some-volto-addon',
     });
     this.option('description', {
       type: String,
@@ -72,40 +113,53 @@ module.exports = class extends Generator {
     this.globals = {
       addons: [],
       voltoVersion,
+      workspaces: [],
+      private: false,
     };
 
     let props;
 
+    // Project name
     if (!!this.args[0]) {
       this.globals.projectName = this.args[0];
     } else if (this.opts.addon) {
       this.globals.projectName = path.basename(process.cwd());
     } else {
-      props = await this.prompt([
-        {
-          type: 'input',
-          name: 'projectName',
-          message: 'Project name',
-          default: path.basename(process.cwd()),
-        },
-      ]);
-      this.globals.projectName = props.projectName;
+      if (this.opts['interactive']) {
+        props = await this.prompt([
+          {
+            type: 'input',
+            name: 'projectName',
+            message: 'Project name',
+            default: path.basename(process.cwd()),
+          },
+        ]);
+        this.globals.projectName = props.projectName;
+      } else {
+        this.globals.projectName = path.basename(process.cwd());
+      }
     }
 
+    // Description
     if (this.opts.description) {
       this.globals.projectDescription = this.opts.description;
     } else {
-      props = await this.prompt([
-        {
-          type: 'input',
-          name: 'projectDescription',
-          message: 'Project description',
-          default: 'A Volto-powered Plone frontend',
-        },
-      ]);
-      this.globals.projectDescription = props.projectDescription;
+      if (this.opts['interactive']) {
+        props = await this.prompt([
+          {
+            type: 'input',
+            name: 'projectDescription',
+            message: 'Project description',
+            default: 'A Volto-powered Plone frontend',
+          },
+        ]);
+        this.globals.projectDescription = props.projectDescription;
+      } else {
+        this.globals.projectDescription = 'A Volto-powered Plone frontend';
+      }
     }
 
+    // Add-ons
     if (this.opts.addon) {
       const addons =
         typeof this.opts.addon === 'string'
@@ -113,7 +167,7 @@ module.exports = class extends Generator {
           : this.opts.addon;
       this.globals.addons = JSON.stringify(addons);
     } else {
-      if (!this.opts['skip-addons']) {
+      if (this.opts['interactive'] && !this.opts['skip-addons']) {
         props = await this.prompt([
           {
             type: 'prompt',
@@ -131,6 +185,36 @@ module.exports = class extends Generator {
         this.globals.addons = JSON.stringify(this.globals.addons);
       } else {
         this.globals.addons = JSON.stringify([]);
+      }
+    }
+
+    // Workspaces
+    if (this.opts.workspace) {
+      const workspaces =
+        typeof this.opts.workspace === 'string'
+          ? [this.opts.workspace]
+          : this.opts.workspace;
+      this.globals.workspaces = JSON.stringify(workspaces);
+      this.globals.private = true;
+    } else {
+      if (this.opts['interactive'] && !this.opts['skip-workspaces']) {
+        props = await this.prompt([
+          {
+            type: 'prompt',
+            name: 'useWorkspaces',
+            message: 'Would you like to add workspaces?',
+            default: true,
+          },
+        ]);
+        while (props.useWorkspaces === true) {
+          /* eslint-disable no-await-in-loop */
+          props = await this.prompt(workspacePrompt);
+          this.globals.workspaces.push(props.workspacePath);
+          this.globals.private = true;
+        }
+        this.globals.workspaces = JSON.stringify(this.globals.workspaces);
+      } else {
+        this.globals.workspaces = JSON.stringify([]);
       }
     }
   }
