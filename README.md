@@ -39,7 +39,7 @@ yo @plone/volto myvoltoproject --no-interactive
 Or by skipping specific configuration:
 
 ```
-yo @plone/volto myvoltoproject --description "My Volto project" --skip-addons --skip-install
+yo @plone/volto myvoltoproject --description "My Volto project" --skip-addons --skip-install --skip-workspaces
 ```
 
 You can also specify addons to load, like:
@@ -51,8 +51,8 @@ yo @plone/volto myvoltoproject --description "My Volto project" --addon "volto-f
 Change the directory to your project to get started:
 
 ```
+$ cd myvoltoproject
 $ yarn
-$ cy myvoltoproject
 ```
 
 ### Start Volto with `yarn start`
