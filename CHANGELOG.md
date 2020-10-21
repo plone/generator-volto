@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1 (unreleased)
+
+### Added
+
+### Changes
+
 ## 1.0.0 (2020-10-21)
 
 ### Added
