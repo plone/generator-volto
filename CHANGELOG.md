@@ -4,13 +4,11 @@
 
 ### Added
 
-### Changes
+- Support Node 14 @sneridagh
 
 ## 1.0.0 (2020-10-21)
 
 ### Added
-
-### Changes
 
 - Add `--workspace` and `--skip-workspaces` @avoinea
 - Add `--interactive`, `--no-interactive` @avoinea

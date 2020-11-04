@@ -90,7 +90,7 @@
     "ignoreFiles": "theme/themes/default/**/*.overrides"
   },
   "engines": {
-    "node": "^10 || ^12"
+    "node": "^10 || ^12 || ^14"
   },
   "dependencies": {
     "@plone/volto": "<%= voltoVersion %>"
