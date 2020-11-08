@@ -2,9 +2,9 @@
 
 ## 1.1.1 (unreleased)
 
-### Added
-
 ### Changes
+
+- Add missing config for addonRoutes and addonReducers @avoinea
 
 ## 1.1.0 (2020-11-04)
 
