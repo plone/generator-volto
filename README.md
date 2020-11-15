@@ -15,7 +15,7 @@ $ npm install -g @plone/generator-volto
 
 ## Usage
 
-Create a new Volto project with:
+### Creating a new Volto project
 
 ```
 $ yo @plone/volto
@@ -24,8 +24,25 @@ $ yo @plone/volto
 This will bootstrap a new Volto project inside the current folder. It will ask
 a few questions: project name, project description and a list of addons. Run:
 
-```
+```console
 $ yo @plone/volto --help
+Usage:
+  yo @plone/volto:app [<projectName>] [options]
+
+Options:
+  -h,   --help             # Print the generator's options and usage
+        --skip-cache       # Do not remember prompt answers                                        Default: false
+        --skip-install     # Do not automatically install dependencies                             Default: false
+        --interactive      # Enable/disable interactive prompt                                     Default: true
+        --skip-addons      # Don't ask for addons as part of the scaffolding
+        --addon            # Addon loader string, like: some-volto-addon:loadExtra,loadOtherExtra
+        --skip-workspaces  # Don't ask for workspaces as part of the scaffolding
+        --workspace        # Yarn workspace, like: src/addons/some-volto-addon
+        --description      # Project description
+
+Arguments:
+  projectName    Type: String  Required: false
+
 ```
 
 to see a full list of options and arguments.
@@ -53,6 +70,23 @@ Change the directory to your project to get started:
 ```
 $ cd myvoltoproject
 $ yarn
+```
+
+### Creating A Volto Add-on
+
+```console
+Usage:
+  yo @plone/volto:addon [<addonName>] [options]
+
+Options:
+  -h,   --help          # Print the generator's options and usage
+        --skip-cache    # Do not remember prompt answers             Default: false
+        --skip-install  # Do not automatically install dependencies  Default: false
+        --interactive   # Enable/disable interactive prompt          Default: true
+
+Arguments:
+  addonName  # Addon name, e.g.: @corp/volto-custom-block  Type: String  Required: false
+
 ```
 
 ### Start Volto with `yarn start`
