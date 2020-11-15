@@ -2,9 +2,9 @@
 
 ## 1.1.2 (unreleased)
 
-### Added
+### Breaking
 
-### Changes
+- Upgrade config to use Volto 9 requirements @sneridagh
 
 ## 1.1.1 (2020-11-08)
 
