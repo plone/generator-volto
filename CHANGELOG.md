@@ -2,9 +2,9 @@
 
 ## 2.0.1 (unreleased)
 
-### Added
-
 ### Changes
+
+- Proper `yarn.lock` @sneridagh
 
 ## 2.0.0 (2020-11-15)
 
