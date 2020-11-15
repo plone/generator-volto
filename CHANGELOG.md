@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.1.2 (unreleased)
+## 2.0.0 (2020-11-15)
 
 ### Breaking
 
