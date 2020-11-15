@@ -6,6 +6,14 @@
 
 - Upgrade config to use Volto 9 requirements @sneridagh
 
+### Added
+
+- Add addon template @avoinea
+
+### Internal
+
+- Use GitHub actions, deprecate Travis @sneridagh
+
 ## 1.1.1 (2020-11-08)
 
 ### Changes
