@@ -4,7 +4,7 @@
 
 ### Added
 
-### Changes
+Add recommended browserlist @sneridagh
 
 ## 2.0.1 (2020-11-15)
 
