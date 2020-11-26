@@ -4,7 +4,7 @@
 
 ### Added
 
-### Changes
+- Remove Razzle plugins patch @sneridagh
 
 ## 2.0.2 (2020-11-16)
 
