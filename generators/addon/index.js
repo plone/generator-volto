@@ -35,7 +35,7 @@ module.exports = class extends Generator {
       defer: false,
       message: `Update available: {currentVersion} -> {latestVersion}
 
-It's important to have the latest generator updated!
+It's important to have the generators updated!
 
 Run "{updateCommand}" to update.`});
 
