@@ -116,7 +116,7 @@ module.exports = class extends Generator {
 
 It's important to have the generators updated!
 
-Run "{updateCommand}" to update.`});
+Run "npm install -g @plone/generator-volto" to update.`});
 
     this.log(chalk.red('Getting latest Volto version'));
     const voltoVersion = await utils.getLatestVoltoVersion();
