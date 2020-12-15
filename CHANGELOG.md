@@ -2,6 +2,8 @@
 
 ## 2.1.1 (unreleased)
 
+- Compatibility with Volto 10.x (no fullobjects by default) @tiberiuichim
+
 ### Added
 
 ### Changes
