@@ -6,6 +6,8 @@
 
 ### Changes
 
+- Fix generated Readme template with updated details on mrs-developer
+
 ## 2.1.0 (2020-11-26)
 
 ### Added
