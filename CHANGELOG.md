@@ -2,6 +2,8 @@
 
 ## 2.1.1 (unreleased)
 
+- Integrate update-notifier to app and addon generators @tiberiuichim
+
 ### Added
 
 ### Changes

@@ -103,6 +103,21 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
+    const updateNotifier = require('update-notifier');
+    const pkg = require('../../package.json');
+    const notifier = updateNotifier({
+      pkg,
+      shouldNotifyInNpmScript: true,
+      updateCheckInterval: 0
+    });
+    notifier.notify({
+      defer: false,
+      message: `Update available: {currentVersion} -> {latestVersion}
+
+It's important to have the generators updated!
+
+Run "npm install -g @plone/generator-volto" to update.`});
+
     this.log(chalk.red('Getting latest Volto version'));
     const voltoVersion = await utils.getLatestVoltoVersion();
 
@@ -120,7 +135,7 @@ module.exports = class extends Generator {
     let props;
 
     // Project name
-    if (!!this.args[0]) {
+    if (this.args[0]) {
       this.globals.projectName = this.args[0];
     } else if (this.opts.addon) {
       this.globals.projectName = path.basename(process.cwd());
