@@ -1,4 +1,11 @@
-[![Build Status](https://travis-ci.org/plone/generator-volto.svg?branch=master)](https://travis-ci.org/plone/generator-volto)
+# Important - Deprecation notice
+
+**This package has been integrated into the main Volto repository itself and continues its
+lifecycle in there, along with the main Volto development.**
+
+**https://github.com/plone/volto/tree/master/packages/generator-volto**
+
+**See https://github.com/plone/volto/pull/2080 for more information.**
 
 # Yeoman Volto App Generator
 
